@@ -2,6 +2,8 @@
 
 Personal portfolio built with Next.js 14, Tailwind CSS, and Framer Motion.
 
+**Live**: [tharun-gowda-pr.vercel.app](https://tharun-gowda-pr.vercel.app)
+
 ## Stack
 
 - **Framework**: Next.js 14 (App Router)
