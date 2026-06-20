@@ -2,6 +2,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { experience, education, certifications, achievements } from "@/lib/data";
 import { Badge } from "@/components/ui/Badge";
+import { RevealText } from "@/components/ui/RevealText";
 import { GraduationCap, Award, Target, Users, ExternalLink } from "lucide-react";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -26,9 +27,9 @@ export function Experience() {
         {/* Leadership & Activities */}
         <div className="mb-20">
           <SectionLabel>Leadership</SectionLabel>
-          <h2 id="exp-heading" className="text-title text-[hsl(var(--foreground))] mb-10">
+          <RevealText id="exp-heading" className="text-title text-[hsl(var(--foreground))] mb-10">
             Experience
-          </h2>
+          </RevealText>
 
           <div className="relative pl-6">
             {/* Timeline line */}
@@ -64,39 +65,41 @@ export function Experience() {
         {/* Achievement */}
         <div className="mb-20">
           <SectionLabel>Achievement</SectionLabel>
-          <h2 className="text-title text-[hsl(var(--foreground))] mb-10">Notable</h2>
+          <RevealText className="text-title text-[hsl(var(--foreground))] mb-10">Notable</RevealText>
 
-          {achievements.map((a, i) => (
-            <motion.div
-              key={i}
-              {...fadeUp(0)}
-              className="flex items-start gap-4 p-5 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--surface))]"
-            >
-              <div className="w-10 h-10 flex items-center justify-center rounded-md bg-[hsl(32_95%_52%/0.12)] border border-[hsl(32_95%_52%/0.2)] flex-shrink-0">
-                <Target className="w-5 h-5 text-[hsl(var(--brand))]" aria-hidden />
-              </div>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-heading text-[hsl(var(--foreground))]">{a.title}</h3>
-                  <Badge variant="brand">{a.subtitle}</Badge>
+          <div className="space-y-4">
+            {achievements.map((a, i) => (
+              <motion.div
+                key={i}
+                {...fadeUp(i * 0.08)}
+                className="flex items-start gap-4 p-5 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--surface))]"
+              >
+                <div className="w-10 h-10 flex items-center justify-center rounded-md bg-[hsl(32_95%_52%/0.12)] border border-[hsl(32_95%_52%/0.2)] flex-shrink-0">
+                  <Target className="w-5 h-5 text-[hsl(var(--brand))]" aria-hidden />
                 </div>
-                <p className="text-small text-[hsl(var(--foreground-muted))] leading-relaxed">
-                  {a.description}
-                </p>
-                {a.link && (
-                  <a
-                    href={a.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 mt-2 text-micro text-[hsl(var(--brand))] hover:underline"
-                  >
-                    <ExternalLink className="w-3 h-3" aria-hidden />
-                    View credentials
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          ))}
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-heading text-[hsl(var(--foreground))]">{a.title}</h3>
+                    <Badge variant="brand">{a.subtitle}</Badge>
+                  </div>
+                  <p className="text-small text-[hsl(var(--foreground-muted))] leading-relaxed">
+                    {a.description}
+                  </p>
+                  {a.link && (
+                    <a
+                      href={a.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 mt-2 text-micro text-[hsl(var(--brand))] hover:underline"
+                    >
+                      <ExternalLink className="w-3 h-3" aria-hidden />
+                      View credentials
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -111,9 +114,9 @@ export function Education() {
       <div className="section-container">
         <div className="mb-12">
           <p className="text-micro text-[hsl(var(--brand))] mb-2">Background</p>
-          <h2 id="edu-heading" className="text-title text-[hsl(var(--foreground))]">
+          <RevealText id="edu-heading" className="text-title text-[hsl(var(--foreground))]">
             Education & Certifications
-          </h2>
+          </RevealText>
         </div>
 
         {/* Education */}
@@ -144,7 +147,7 @@ export function Education() {
                         <div className="font-mono text-[1rem] font-semibold text-[hsl(var(--foreground))] mt-1">
                           {edu.gpa}
                         </div>
-                        <span className="text-micro text-[hsl(var(--foreground-subtle))]">GPA</span>
+                        <span className="text-micro text-[hsl(var(--foreground-subtle))]">{typeof edu.gpa === "string" && edu.gpa.includes("%") ? "Percentage" : "GPA"}</span>
                       </>
                     ) : edu.examScores ? (
                       <div className="mt-1 space-y-0.5">

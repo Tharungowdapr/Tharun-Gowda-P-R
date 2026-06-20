@@ -1,6 +1,7 @@
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
 import { skills } from "@/lib/data";
+import { RevealText } from "@/components/ui/RevealText";
 
 export function Skills() {
   const reduced = useReducedMotion();
@@ -10,9 +11,9 @@ export function Skills() {
       <div className="section-container">
         <div className="mb-12">
           <p className="text-micro text-[hsl(var(--brand))] mb-2">Capabilities</p>
-          <h2 id="skills-heading" className="text-title text-[hsl(var(--foreground))]">
+          <RevealText id="skills-heading" className="text-title text-[hsl(var(--foreground))]">
             Technical Skills
-          </h2>
+          </RevealText>
         </div>
 
         <div className="space-y-8">

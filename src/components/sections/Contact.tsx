@@ -1,6 +1,7 @@
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
 import { personal } from "@/lib/data";
+import { RevealText } from "@/components/ui/RevealText";
 import { Mail, Github, Linkedin, MapPin, ArrowUpRight, Phone, FileText } from "lucide-react";
 
 const LINKS = [
@@ -61,12 +62,12 @@ export function Contact() {
             className="mb-12"
           >
             <p className="text-micro text-[hsl(var(--brand))] mb-2">Get in touch</p>
-            <h2
+            <RevealText
               id="contact-heading"
               className="text-title text-[hsl(var(--foreground))] mb-4"
             >
               Contact
-            </h2>
+            </RevealText>
             <p className="text-body text-[hsl(var(--foreground-muted))] leading-relaxed">
                I&apos;m actively looking for AI/ML and NLP engineering internships. If you&apos;re
                working on something interesting — multi-agent systems, RAG, computer vision, or

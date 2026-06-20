@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
+import { CursorSpotlight } from "@/components/ui/CursorSpotlight";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tharun-portfolio.vercel.app"),
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased grain-overlay`}
       >
+        <CursorSpotlight />
         <div className="ambient-glow" aria-hidden />
         {children}
       </body>

@@ -1,8 +1,9 @@
 "use client";
-import { motion, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRef, useCallback } from "react";
 import { projects } from "@/lib/data";
 import { Badge } from "@/components/ui/Badge";
+import { RevealText } from "@/components/ui/RevealText";
 import { ExternalLink as ExtLinkIcon, Github, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -20,18 +21,41 @@ function ProjectCard({
   index: number;
 }) {
   const reduced = useReducedMotion();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0.5);
+  const y = useMotionValue(0.5);
+  const springX = useSpring(x, { stiffness: 300, damping: 30 });
+  const springY = useSpring(y, { stiffness: 300, damping: 30 });
+  const rotateX = useTransform(springY, [0, 1], [reduced ? 0 : 6, reduced ? 0 : -6]);
+  const rotateY = useTransform(springX, [0, 1], [reduced ? 0 : -6, reduced ? 0 : 6]);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (reduced || !cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    x.set((e.clientX - rect.left) / rect.width);
+    y.set((e.clientY - rect.top) / rect.height);
+  }, [reduced, x, y]);
+
+  const handleMouseLeave = useCallback(() => {
+    x.set(0.5);
+    y.set(0.5);
+  }, [x, y]);
 
   return (
     <motion.article
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: reduced ? 0 : 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.45, delay: index * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
+      style={{ perspective: 1000, rotateX, rotateY }}
       className={cn(
         "group relative flex flex-col p-6 rounded-lg border border-[hsl(var(--border))]",
         "bg-[hsl(var(--surface))] hover:bg-[hsl(var(--surface-raised))]",
-        "hover:border-[hsl(var(--border-strong))] transition-all duration-200",
-        "cursor-default"
+        "hover:border-[hsl(var(--border-strong))] transition-colors duration-200",
+        "cursor-default will-change-transform"
       )}
     >
       {/* Hover glow */}
@@ -113,9 +137,9 @@ export function Projects() {
         {/* Section header */}
         <div className="mb-12">
           <p className="text-micro text-[hsl(var(--brand))] mb-2">Work</p>
-          <h2 id="projects-heading" className="text-title text-[hsl(var(--foreground))]">
+          <RevealText id="projects-heading" className="text-title text-[hsl(var(--foreground))]">
             Projects
-          </h2>
+          </RevealText>
           <p className="text-body text-[hsl(var(--foreground-muted))] mt-3 max-w-lg">
             Production-grade AI systems — multi-agent architectures, RAG pipelines, diffusion models, and computer vision — all containerized with Docker.
           </p>

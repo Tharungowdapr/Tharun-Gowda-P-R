@@ -125,6 +125,26 @@
     .section-container { padding-inline: 3rem; }
   }
 
+  /* Grid pulse */
+  @keyframes grid-pulse {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 0.6; }
+  }
+
+  /* Floating orbs */
+  @keyframes orb-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -40px) scale(1.05); }
+    50% { transform: translate(-20px, -80px) scale(0.95); }
+    75% { transform: translate(-40px, -20px) scale(1.02); }
+  }
+  @keyframes orb-float-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(-30px, 40px) scale(0.95); }
+    50% { transform: translate(20px, 80px) scale(1.05); }
+    75% { transform: translate(40px, 20px) scale(0.98); }
+  }
+
   /* Grain texture overlay */
   .grain-overlay::before {
     content: "";

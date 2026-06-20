@@ -197,6 +197,7 @@ export const projects = [
     ],
     stack: ["Python", "JavaScript", "RL", "Docker"],
     github: "https://github.com/tharungowdapr/RL-Agent-for-Security",
+    demo: "https://huggingface.co/spaces/tharungowadpr/RL_FOR_SECURITY",
     type: "AI System",
   },
   {
@@ -232,13 +233,6 @@ export const experience = [
     description: "Led end-to-end planning and execution of large-scale inter-college shooting competition. Managed scheduling, logistics, and volunteer coordination across multiple colleges.",
     type: "event",
   },
-  {
-    role: "Independent AI Developer",
-    org: "Open-Source Projects",
-    period: "2024 – Present",
-    description: "Built and deployed 10+ AI systems spanning multi-agent architectures, RAG pipelines, computer vision, and full-stack applications. All projects containerized with Docker and deployed on cloud infrastructure.",
-    type: "development",
-  },
 ];
 
 export const education = [
@@ -259,10 +253,19 @@ export const education = [
     institution: "Expert PU College, Vallachil",
     affiliation: "Pre-University Course",
     period: "2021 – 2023",
-    gpa: null,
+    gpa: "92.8%",
     coursework: ["Physics", "Chemistry", "Mathematics", "Computer Science"],
     examScores: null,
     note: "IIT-JEE aspirant",
+  },
+  {
+    degree: "ICSE (Class 10)",
+    institution: "Gnana Deepa Academy (GDARS)",
+    affiliation: "ICSE Board",
+    period: "2019 – 2021",
+    gpa: "91%",
+    coursework: ["English", "Mathematics", "Science", "Social Studies", "Computer Applications"],
+    examScores: null,
   },
 ];
 
@@ -291,11 +294,5 @@ export const achievements = [
     description:
       "Represented Karnataka NCC Directorate at the National Shooting Championship (Dec 2024) in 50m 3-Position rifle. All India GVSM participant. Consistent high-pressure performer with discipline and precision.",
     link: "https://drive.google.com/drive/folders/19c7aU28W4TUc-opag7M9Yuyv7Jy3PUfF?usp=sharing",
-  },
-  {
-    title: "EIPR Multi-Agent System",
-    subtitle: "Open-Source",
-    description:
-      "Built a 5-agent AI system for Entrepreneurship & IP Rights analysis with LangGraph orchestration, featuring specialized research, legal, strategy, and recommendation agents.",
   },
 ];

@@ -1,16 +1,46 @@
 "use client";
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { personal } from "@/lib/data";
 import { ArrowDown, Github, Linkedin, MapPin } from "lucide-react";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 
-function TypingRoles() {
+const ROLES = ["AI/ML Engineer", "Full-Stack AI Developer", "NLP Engineer", "Computer Vision Enthusiast"];
+
+function Typewriter() {
+  const [text, setText] = useState("");
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = ROLES[roleIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!deleting && text === current) {
+      timeout = setTimeout(() => setDeleting(true), 2000);
+    } else if (deleting && text === "") {
+      setDeleting(false);
+      setRoleIndex((i) => (i + 1) % ROLES.length);
+    } else {
+      timeout = setTimeout(
+        () => {
+          setText(deleting ? current.slice(0, text.length - 1) : current.slice(0, text.length + 1));
+        },
+        deleting ? 40 : 80
+      );
+    }
+
+    return () => clearTimeout(timeout);
+  }, [text, roleIndex, deleting]);
+
   return (
     <span className="inline-flex items-center gap-2 font-mono text-small text-[hsl(var(--foreground-muted))]">
       <span className="text-[hsl(var(--brand))]">$</span>
       <span>role</span>
       <span className="text-[hsl(var(--foreground-subtle))]">=</span>
-      <span className="text-[hsl(32_95%_62%)]">&ldquo;AI/ML Engineer&rdquo;</span>
-      <span className="inline-block w-[2px] h-4 bg-[hsl(var(--brand))] animate-[blink_1.1s_step-end_infinite]" aria-hidden />
+      <span className="text-[hsl(32_95%_62%)]">&ldquo;{text}</span>
+      <span className="inline-block w-[2px] h-4 bg-[hsl(var(--brand))] animate-[blink_1.1s_step-end_infinite] -ml-1" aria-hidden />
+      <span className="text-[hsl(32_95%_62%)]">&rdquo;</span>
     </span>
   );
 }
@@ -30,19 +60,38 @@ export function Hero() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex flex-col justify-center pt-20 pb-16"
+      className="relative min-h-screen flex flex-col justify-center pt-20 pb-16 overflow-hidden"
       aria-label="Introduction"
     >
-      {/* Subtle grid background */}
+      {/* Gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
+        <div
+          className="absolute top-1/4 -left-24 w-96 h-96 rounded-full opacity-20"
+          style={{
+            background: "radial-gradient(circle, hsl(32 95% 52% / 0.3), transparent 70%)",
+            animation: "orb-float 20s ease-in-out infinite",
+          }}
+        />
+        <div
+          className="absolute bottom-1/4 -right-24 w-80 h-80 rounded-full opacity-15"
+          style={{
+            background: "radial-gradient(circle, hsl(200 80% 50% / 0.25), transparent 70%)",
+            animation: "orb-float-2 25s ease-in-out infinite",
+          }}
+        />
+      </div>
+
+      {/* Animated grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(hsl(var(--border)/0.4) 1px, transparent 1px),
-            linear-gradient(90deg, hsl(var(--border)/0.4) 1px, transparent 1px)
+            linear-gradient(hsl(var(--border-strong)/0.25) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--border-strong)/0.25) 1px, transparent 1px)
           `,
-          backgroundSize: "64px 64px",
-          maskImage: "radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%)",
+          backgroundSize: "48px 48px",
+          maskImage: "radial-gradient(ellipse 70% 55% at 50% 50%, black 25%, transparent 100%)",
+          animation: "grid-pulse 8s ease-in-out infinite",
         }}
         aria-hidden
       />
@@ -72,9 +121,9 @@ export function Hero() {
             RV College of Engineering · B.E. AIML
           </motion.p>
 
-          {/* Typing role */}
+          {/* Typewriter */}
           <motion.div variants={item} className="mb-6">
-            <TypingRoles />
+            <Typewriter />
           </motion.div>
 
           {/* Bio */}
@@ -90,13 +139,13 @@ export function Hero() {
 
           {/* CTAs */}
           <motion.div variants={item} className="flex flex-wrap gap-3 mb-16">
-            <a
+            <MagneticButton
               href="#projects"
               className="inline-flex items-center gap-2 h-10 px-5 bg-[hsl(var(--brand))] text-[hsl(var(--brand-foreground))] text-small font-semibold rounded-md hover:brightness-110 active:brightness-95 transition-all duration-150"
             >
               View Projects
-            </a>
-            <a
+            </MagneticButton>
+            <MagneticButton
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
@@ -104,8 +153,8 @@ export function Hero() {
             >
               <Github className="w-4 h-4" aria-hidden />
               GitHub
-            </a>
-            <a
+            </MagneticButton>
+            <MagneticButton
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
@@ -113,7 +162,7 @@ export function Hero() {
             >
               <Linkedin className="w-4 h-4" aria-hidden />
               LinkedIn
-            </a>
+            </MagneticButton>
           </motion.div>
 
           {/* Stats row */}

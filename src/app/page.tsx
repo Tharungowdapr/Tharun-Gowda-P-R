@@ -6,6 +6,7 @@ import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
 import { Experience, Education } from "@/components/sections/Experience";
 import { Contact } from "@/components/sections/Contact";
+import { ParallaxSection } from "@/components/ui/ParallaxSection";
 
 export default function Home() {
   return (
@@ -23,11 +24,11 @@ export default function Home() {
 
       <main id="main" className="pb-24 md:pb-0">
         <Hero />
-        <Projects />
-        <Skills />
-        <Experience />
-        <Education />
-        <Contact />
+        <ParallaxSection><Projects /></ParallaxSection>
+        <ParallaxSection><Skills /></ParallaxSection>
+        <ParallaxSection><Experience /></ParallaxSection>
+        <ParallaxSection><Education /></ParallaxSection>
+        <ParallaxSection><Contact /></ParallaxSection>
       </main>
 
       <Footer />
