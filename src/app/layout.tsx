@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     description: "Building intelligent systems. LLMs, RAG, NLP, Computer Vision.",
   },
   robots: { index: true, follow: true },
+  alternates: {
+    canonical: "https://tharun-gowda-pr.vercel.app",
+  },
 };
 
 export const viewport: Viewport = {
