@@ -38,6 +38,38 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Tharun Gowda P R",
+    givenName: "Tharun",
+    familyName: "Gowda P R",
+    jobTitle: "AI/ML Engineer",
+    affiliation: {
+      "@type": "CollegeOrUniversity",
+      name: "RV College of Engineering",
+      address: { addressLocality: "Bengaluru", addressCountry: "IN" },
+    },
+    url: "https://tharun-gowda-pr.vercel.app",
+    sameAs: [
+      "https://github.com/tharungowdapr",
+      "https://www.linkedin.com/in/tharun-gowda-p-r-836696382",
+    ],
+    email: "tharungowdapr@gmail.com",
+    telephone: "+91 7411504315",
+    knowsAbout: [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Natural Language Processing",
+      "Computer Vision",
+      "Retrieval-Augmented Generation",
+      "Multi-Agent Systems",
+      "Deep Learning",
+      "FastAPI",
+      "Next.js",
+    ],
+  };
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
@@ -45,6 +77,10 @@ export default function RootLayout({
       >
         <CursorSpotlight />
         <div className="ambient-glow" aria-hidden />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>

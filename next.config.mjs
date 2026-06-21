@@ -9,6 +9,17 @@ const nextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
+            key: "Permissions-Policy",
+            value: [
+              "camera=()",
+              "microphone=()",
+              "geolocation=()",
+              "interest-cohort=()",
+              "payment=()",
+              "usb=()",
+            ].join(", "),
+          },
+          {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
@@ -17,6 +28,9 @@ const nextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https://avatars.githubusercontent.com https://github.com",
               "connect-src 'self'",
+              "frame-ancestors 'none'",
+              "form-action 'self'",
+              "base-uri 'self'",
             ].join("; "),
           },
         ],
