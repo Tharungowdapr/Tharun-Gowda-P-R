@@ -5,8 +5,9 @@ import "./globals.css";
 import { CursorSpotlight } from "@/components/ui/CursorSpotlight";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tharun-portfolio.vercel.app"),
+  metadataBase: new URL("https://tharun-gowda-pr.vercel.app"),
   title: "Tharun Gowda P R — AI/ML Engineer",
+  verification: { google: "7W9h8MG2f1QqoqrsRbxoV9_pdbrRwlBcFOdtnJrMHZE" },
   description:
     "Third-year AIML student at RVCE. Building LLM applications, RAG systems, and computer vision solutions. Seeking AI/ML engineering internships.",
   keywords: [
