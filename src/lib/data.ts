@@ -64,8 +64,8 @@ export const projects = [
       "Structured report generation with recommendations",
     ],
     stack: ["LangGraph", "FastAPI", "Claude API", "ChromaDB", "Docker"],
-    github: "https://github.com/tharungowdapr/EIPR-Agent",
-    demo: "https://frontend-six-flax-42.vercel.app",
+    github: "https://github.com/Tharungowdapr/Entrepreneurial-and-Financial-Decision-Support-System-for-Startup-Evaluation-and-Investment-Feasibil",
+    demo: "https://eipr-phi.vercel.app",
     type: "AI System",
   },
   {
@@ -99,6 +99,7 @@ export const projects = [
     ],
     stack: ["FastAPI", "Next.js", "RAG", "ChromaDB", "Ollama", "Groq", "Docker"],
     github: "https://github.com/tharungowdapr/Nutritional-Assistant",
+    demo: "https://frontend-azure-omega-45f4cqwbni.vercel.app",
     type: "AI System",
   },
   {
@@ -115,6 +116,7 @@ export const projects = [
     ],
     stack: ["LangChain", "FastAPI", "Gemini API", "Whisper ASR", "Docker"],
     github: "https://github.com/tharungowdapr/AGRI-AI",
+    demo: "https://krishivigyan-ai-agricultural-intelligence-platfor-109270767698.us-west1.run.app/",
     type: "AI System",
   },
   {
