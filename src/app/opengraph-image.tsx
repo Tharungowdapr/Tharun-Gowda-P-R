@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Tharun Gowda P R — AI/ML Engineer";
+export const alt = "Tharun Gowda P R — AI/ML & Software Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,7 +54,7 @@ export default function OGImage() {
             marginTop: 12,
           }}
         >
-          AI/ML Engineer · RV College of Engineering
+          AI/ML &amp; Software Engineer · RV College of Engineering
         </div>
         <div
           style={{

@@ -6,25 +6,25 @@ import { CursorSpotlight } from "@/components/ui/CursorSpotlight";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tharun-gowda-pr.vercel.app"),
-  title: "Tharun Gowda P R — AI/ML Engineer",
+  title: "Tharun Gowda P R — AI/ML & Software Engineer",
   verification: { google: "7W9h8MG2f1QqoqrsRbxoV9_pdbrRwlBcFOdtnJrMHZE" },
   description:
-    "Third-year AIML student at RVCE. Building LLM applications, RAG systems, and computer vision solutions. Seeking AI/ML engineering internships.",
+    "Third-year AIML student at RVCE. Building AI systems and full-stack applications — LLMs, RAG, computer vision, and scalable web apps. Seeking AI/ML & software engineering internships.",
   keywords: [
     "AI Engineer", "ML Engineer", "NLP", "LLM", "RAG", "FastAPI", "Next.js",
     "RVCE", "Bengaluru", "Tharun Gowda", "portfolio"
   ],
   authors: [{ name: "Tharun Gowda P R" }],
   openGraph: {
-    title: "Tharun Gowda P R — AI/ML Engineer",
-    description: "Building intelligent systems. LLMs, RAG, NLP, Computer Vision.",
+    title: "Tharun Gowda P R — AI/ML & Software Engineer",
+    description: "Building intelligent, scalable systems — AI agents, RAG, full-stack apps.",
     type: "website",
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tharun Gowda P R — AI/ML Engineer",
-    description: "Building intelligent systems. LLMs, RAG, NLP, Computer Vision.",
+    title: "Tharun Gowda P R — AI/ML & Software Engineer",
+    description: "Building intelligent, scalable systems — AI agents, RAG, full-stack apps.",
   },
   robots: { index: true, follow: true },
   alternates: {
@@ -47,7 +47,7 @@ export default function RootLayout({
     name: "Tharun Gowda P R",
     givenName: "Tharun",
     familyName: "Gowda P R",
-    jobTitle: "AI/ML Engineer",
+    jobTitle: "AI/ML & Software Engineer",
     affiliation: {
       "@type": "CollegeOrUniversity",
       name: "RV College of Engineering",

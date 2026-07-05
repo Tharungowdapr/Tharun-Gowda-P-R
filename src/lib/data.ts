@@ -1,14 +1,14 @@
 export const personal = {
   name: "Tharun Gowda P R",
-  role: "AI/ML Engineering Intern",
+  role: "AI/ML & Software Engineering Intern",
   location: "Bengaluru, India",
   email: "tharungowdapr@gmail.com",
   phone: "+91 7411504315",
   github: "https://github.com/tharungowdapr",
   linkedin: "https://www.linkedin.com/in/tharun-gowda-p-r-836696382",
   resume: "https://drive.google.com/file/d/1PS2vmY9mprKUuZdWGf3nFnKMT_Kf-LKE/view?usp=sharing",
-  bio: "B.E. AIML student at RVCE building production-grade AI systems — multi-agent LLM pipelines, RAG architectures, computer vision, and physics-constrained deep learning models.",
-  tagline: "Building intelligent systems that reason, retrieve, and respond.",
+  bio: "B.E. AIML student at RVCE building production-grade AI and full-stack systems — multi-agent pipelines, RAG architectures, computer vision, and scalable web applications with Docker, FastAPI, and Next.js.",
+  tagline: "Building intelligent, scalable systems — from AI agents to full-stack applications.",
 };
 
 export const skills = [
