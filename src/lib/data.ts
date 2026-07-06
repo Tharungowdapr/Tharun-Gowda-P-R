@@ -116,7 +116,7 @@ export const projects = [
     ],
     stack: ["LangChain", "FastAPI", "Gemini API", "Whisper ASR", "Docker"],
     github: "https://github.com/tharungowdapr/AGRI-AI",
-    demo: "https://krishivigyan-ai-agricultural-intelligence-platfor-109270767698.us-west1.run.app/",
+    demo: "https://krishivigyan.vercel.app/",
     type: "AI System",
   },
   {
