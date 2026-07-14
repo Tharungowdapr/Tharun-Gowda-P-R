@@ -133,7 +133,7 @@ export const projects = [
     ],
     stack: ["LangChain", "FastAPI", "Next.js", "Zotero API", "arXiv API", "Docker"],
     github: "https://github.com/tharungowdapr/Research-IDE",
-    demo: "https://research-ide-frontend-175420668218.asia-south1.run.app",
+    demo: "https://research-ide-frontend.vercel.app",
     type: "NLP",
   },
   {
