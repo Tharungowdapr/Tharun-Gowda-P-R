@@ -264,7 +264,7 @@ export const education = [
     degree: "ICSE (Class 10)",
     institution: "Gnana Deepa Academy (GDARS)",
     affiliation: "ICSE Board",
-    period: "2019 – 2021",
+    period: "2020 – 2021",
     gpa: "91%",
     coursework: ["English", "Mathematics", "Science", "Social Studies", "Computer Applications"],
     examScores: null,
