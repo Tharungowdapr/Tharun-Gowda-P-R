@@ -131,10 +131,7 @@ export function Hero() {
             variants={item}
             className="text-body text-[hsl(var(--foreground-muted))] max-w-xl leading-relaxed mb-10"
           >
-            Third-year AIML student at RVCE building production-grade AI systems — multi-agent
-            pipelines, RAG architectures, diffusion models, and computer vision. Former NCC cadet
-            and national-level rifle shooter. Currently at{" "}
-            <span className="text-[hsl(var(--foreground))]">RVCE, Bengaluru</span>.
+            {personal.bio}
           </motion.p>
 
           {/* CTAs */}
@@ -171,7 +168,7 @@ export function Hero() {
             className="grid grid-cols-3 gap-px bg-[hsl(var(--border))] rounded-lg overflow-hidden border border-[hsl(var(--border))] max-w-sm"
           >
             {[
-              { value: "8.12", label: "GPA", suffix: "/10" },
+              { value: "8.16", label: "GPA", suffix: "/10" },
               { value: "10", label: "Projects" },
               { value: "3", label: "Certifications" },
             ].map(({ value, label, suffix }) => (
